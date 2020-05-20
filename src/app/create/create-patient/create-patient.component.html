@@ -1,5 +1,6 @@
 <div class="page-layout blank p24 rounded" fusePerfectScrollbar>
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper class="fill">
+        <span>-------------------------</span>
         <mat-step [stepControl]="firstFormGroup">
             <form [formGroup]="firstFormGroup">
                 <ng-template matStepLabel>Fill Primary Information</ng-template>
@@ -31,6 +32,7 @@
                 </mat-form-field>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
+
                     <button mat-button matStepperNext>Next</button>
                 </div>
             </form>
