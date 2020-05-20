@@ -29,6 +29,14 @@ export const navigation: FuseNavigation[] = [
                 icon: "create",
                 url: "/home/create-patient",
             },
+            {
+                id: "Login",
+                title: "Login",
+                translate: "NAV.LOGIN.TITLE",
+                type: "item",
+                icon: "face",
+                url: "auth/login-2",
+            },
         ],
     },
 ];

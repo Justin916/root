@@ -23,11 +23,12 @@ import { AppComponent } from "app/app.component";
 import { LayoutModule } from "app/layout/layout.module";
 import { SampleModule } from "app/main/sample/sample.module";
 import { EditorModule } from "./editor/editor.module";
+import { Login2Module } from "./login-2/login-2.module";
 
 const appRoutes: Routes = [
     {
         path: "**",
-        redirectTo: "/home/create-patient",
+        redirectTo: "/auth/login-2",
     },
 ];
 
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
         LayoutModule,
         SampleModule,
         EditorModule,
+        Login2Module,
     ],
     bootstrap: [AppComponent],
 })

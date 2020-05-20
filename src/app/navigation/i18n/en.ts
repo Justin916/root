@@ -15,6 +15,10 @@ export const locale = {
                 TITLE: "Search",
                 BADGE: "25",
             },
+            LOGIN: {
+                TITLE: "Login",
+                BADGE: "25",
+            },
         },
     },
 };
