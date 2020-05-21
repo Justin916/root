@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit, ViewEncapsulation, Input } from "@angular/core";
+import {
+    FormBuilder,
+    FormGroup,
+    Validators,
+    FormControl,
+} from "@angular/forms";
 
 import { FuseConfigService } from "@fuse/services/config.service";
 import { fuseAnimations } from "@fuse/animations";
@@ -17,6 +22,9 @@ import { Login2Service } from "./login-2.service";
 export class Login2Component implements OnInit {
     loginForm: FormGroup;
 
+    firstLevelAuthComplete: Boolean = false;
+
+    @Input()
     loginData: ILoginData;
     /**
      * Constructor
@@ -60,13 +68,30 @@ export class Login2Component implements OnInit {
         this.loginForm = this._formBuilder.group({
             userId: ["", [Validators.required]],
             password: ["", Validators.required],
+            otp: new FormControl({ value: "", disabled: true }, null),
         });
         console.log("Log Validation :" + this.loginForm.invalid);
     }
 
     onSubmit(): void {
-        console.log("onSubmit called" + this.loginForm.value);
-        this._loginService.auth1(this.loginForm.value);
-        this._router.navigateByUrl("/home/create-patient");
+        if (this.firstLevelAuthComplete) {
+            this._router.navigateByUrl("/home/create-patient");
+        } else {
+            this.firstLevelAuthComplete = true;
+            console.log("firstLevelAuthComplete ", this.firstLevelAuthComplete);
+            console.log("onSubmit called" + this.loginForm.value);
+            this._loginService.auth1(this.loginForm.value);
+            this.loginForm = this._formBuilder.group({
+                userId: new FormControl(
+                    { value: this.loginForm.value.userId, disabled: true },
+                    Validators.required
+                ),
+                password: new FormControl(
+                    { value: this.loginForm.value.password, disabled: true },
+                    Validators.required
+                ),
+                otp: new FormControl("", Validators.required),
+            });
+        }
     }
 }
