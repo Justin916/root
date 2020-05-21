@@ -66,7 +66,7 @@ export class Login2Component implements OnInit {
      */
     ngOnInit(): void {
         this.loginForm = this._formBuilder.group({
-            userId: ["", [Validators.required]],
+            userId: ["", Validators.required],
             password: ["", Validators.required],
             otp: new FormControl({ value: "", disabled: true }, null),
         });
@@ -90,7 +90,7 @@ export class Login2Component implements OnInit {
                     { value: this.loginForm.value.password, disabled: true },
                     Validators.required
                 ),
-                otp: new FormControl("", Validators.required),
+                otp: new FormControl("", [Validators.required]),
             });
         }
     }
