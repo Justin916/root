@@ -8,16 +8,16 @@ form {
 }
 
 button {
-    background-color: #38a6c2;
+    background-color: #43869e;
     color: white;
-    width: 100px;
+    width: 65px;
     height: 25px;
     border: none;
     padding: 5px;
     margin-right: 10px;
-    box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
+    box-shadow: 1px 4px 8px 0 rgba(218, 181, 19, 0.2),
+        0 6px 20px 0 rgba(133, 233, 186, 0.19);
+    border-radius: 5px;
 }
 
 mat-horizontal-stepper.fill {

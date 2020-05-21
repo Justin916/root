@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { FuseConfigService } from "@fuse/services/config.service";
 import { fuseAnimations } from "@fuse/animations";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ILoginData } from "./interfaces/ILoginData";
+import { Login2Service } from "./login-2.service";
 
 @Component({
     selector: "login-2",
@@ -15,6 +17,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class Login2Component implements OnInit {
     loginForm: FormGroup;
 
+    loginData: ILoginData;
     /**
      * Constructor
      *
@@ -24,7 +27,8 @@ export class Login2Component implements OnInit {
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
-        private _router: Router
+        private _router: Router,
+        private _loginService: Login2Service
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -61,7 +65,8 @@ export class Login2Component implements OnInit {
     }
 
     onSubmit(): void {
-        console.log("onSubmit called");
+        console.log("onSubmit called" + this.loginForm.value);
+        this._loginService.auth1(this.loginForm.value);
         this._router.navigateByUrl("/home/create-patient");
     }
 }

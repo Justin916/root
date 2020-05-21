@@ -9,6 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 import { FuseSharedModule } from "@fuse/shared.module";
 
 import { Login2Component } from "app/login-2/login-2.component";
+import { Login2Service } from "./login-2.service";
 
 const routes = [
     {
@@ -19,6 +20,7 @@ const routes = [
 
 @NgModule({
     declarations: [Login2Component],
+    providers: [Login2Service],
     imports: [
         RouterModule.forChild(routes),
 

@@ -14,7 +14,7 @@
                     />
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
@@ -31,9 +31,9 @@
                     />
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button matStepperPrevious>Back</button>
 
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-raised-button matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
@@ -41,24 +41,30 @@
             <ng-template matStepLabel>Add Image</ng-template>
             <p></p>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button mat-raised-button (click)="stepper.reset()">
+                    Reset
+                </button>
             </div>
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Add Document</ng-template>
             <p></p>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button mat-raised-button (click)="stepper.reset()">
+                    Reset
+                </button>
             </div>
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Review and Submit</ng-template>
             <p></p>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button mat-raised-button (click)="stepper.reset()">
+                    Reset
+                </button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>
