@@ -1,19 +1,41 @@
 <div class="page-layout blank p24 rounded" fusePerfectScrollbar>
-    <mat-horizontal-stepper [linear]="isLinear" #stepper class="fill">
-        <span>-------------------------</span>
+    <mat-horizontal-stepper
+        [linear]="isLinear"
+        #stepper
+        labelPosition="bottom"
+        class="fill"
+    >
+        <ng-template matStepperIcon="edit">
+            <mat-icon>insert_drive_file</mat-icon>
+        </ng-template>
+
+        <ng-template matStepperIcon="image">
+            <img
+                class="avatar mr-0 mr-sm-16"
+                src="assets/images/avatars/Christy.jpg"
+            />
+        </ng-template>
+
+        <ng-template matStepperIcon="done">
+            <mat-icon>done_all</mat-icon>
+        </ng-template>
         <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Fill Primary Information</ng-template>
-                <mat-form-field>
-                    <mat-label>Name</mat-label>
-                    <input
-                        matInput
-                        placeholder="Last name, First name"
-                        formControlName="firstCtrl"
-                        required
-                    />
-                </mat-form-field>
-                <div>
+            <form [formGroup]="firstFormGroup" class="fill">
+                <ng-template matStepLabel>
+                    Fill Primary Information
+                </ng-template>
+                <div class="fill">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input
+                            matInput
+                            placeholder="Last name, First name"
+                            formControlName="firstCtrl"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div align="right">
                     <button mat-raised-button matStepperNext>Next</button>
                 </div>
             </form>
@@ -21,15 +43,17 @@
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>Questionnaire ?</ng-template>
-                <mat-form-field>
-                    <mat-label>Address</mat-label>
-                    <input
-                        matInput
-                        formControlName="secondCtrl"
-                        placeholder="Ex. 1 Main St, New York, NY"
-                        required
-                    />
-                </mat-form-field>
+                <div class="fill">
+                    <mat-form-field>
+                        <mat-label>Address</mat-label>
+                        <input
+                            matInput
+                            formControlName="secondCtrl"
+                            placeholder="Ex. 1 Main St, New York, NY"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
                 <div>
                     <button mat-raised-button matStepperPrevious>Back</button>
 
@@ -37,15 +61,18 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step>
-            <ng-template matStepLabel>Add Image</ng-template>
-            <p></p>
-            <div>
-                <button mat-raised-button matStepperPrevious>Back</button>
-                <button mat-raised-button (click)="stepper.reset()">
-                    Reset
-                </button>
-            </div>
+        <mat-step state="image" [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Christy Kachi Val</ng-template>
+                <p></p>
+                <app-manage-image></app-manage-image>
+                <div align="right">
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-raised-button (click)="stepper.reset()">
+                        Reset
+                    </button>
+                </div>
+            </form>
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Add Document</ng-template>

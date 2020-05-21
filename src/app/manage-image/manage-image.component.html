@@ -1,0 +1,45 @@
+<div id="kachi">
+    <span> Choose file name 1 for crop:</span>
+    <input type="file" (change)="fileChangeEvent($event)" />
+</div>
+
+<div id="christy">
+    <span> Choose file name 2 to join:</span>
+    <input
+        style="display: none;"
+        type="file"
+        (change)="fileChangeEvent1($event)"
+        #fileInput
+    />
+    <button (click)="fileInput.click()">Select File</button>
+</div>
+
+<div id="join">
+    <button (click)="join()">Join</button>
+</div>
+
+<div>
+    <img [src]="croppedImage" />
+</div>
+<br />
+
+<div>
+    <img [src]="croppedImage1" />
+</div>
+
+<div>
+    <span>joined image</span>
+    <img [src]="croppedImage2" />
+</div>
+
+<br />
+
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [resizeToWidth]="0"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>

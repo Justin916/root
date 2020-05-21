@@ -44,6 +44,7 @@ import { MatTreeModule } from "@angular/material/tree";
 import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MAT_STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 import {
     MAT_FORM_FIELD_DEFAULT_OPTIONS,
     MatFormFieldModule,
@@ -53,9 +54,11 @@ import {
 import { CreateRoutingModule } from "./create-routing.module";
 import { CreatePatientComponent } from "./create-patient/create-patient.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ManageImageComponent } from "app/manage-image/manage-image.component";
+import { ImageCropperModule } from "ngx-image-cropper";
 
 @NgModule({
-    declarations: [CreatePatientComponent],
+    declarations: [CreatePatientComponent, ManageImageComponent],
     imports: [
         CommonModule,
         CreateRoutingModule,
@@ -65,11 +68,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,
+        ImageCropperModule,
     ],
     providers: [
         {
-            provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-            useValue: { appearance: "fill" },
+            provide: MAT_STEPPER_GLOBAL_OPTIONS,
+            useValue: { displayDefaultIndicatorType: false, showError: true },
         },
     ],
     exports: [
