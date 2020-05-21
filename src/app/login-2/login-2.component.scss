@@ -11,6 +11,7 @@ login-2 {
             )
             no-repeat;
         background-size: cover;
+        background-image: url(assets/images/backgrounds/backg.jpg);
 
         #login-intro {
             padding: 128px;
@@ -28,6 +29,7 @@ login-2 {
                 font-size: 42px;
                 font-weight: 300;
                 line-height: 1;
+                color: darkslategray;
             }
 
             .description {
