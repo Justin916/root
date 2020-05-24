@@ -80,7 +80,7 @@ export class Login2Component implements OnInit {
             this.firstLevelAuthComplete = true;
             console.log("firstLevelAuthComplete ", this.firstLevelAuthComplete);
             console.log("onSubmit called" + this.loginForm.value);
-            this._loginService.auth1(this.loginForm.value);
+            console.log(this._loginService.auth1(this.loginForm.value));
             this.loginForm = this._formBuilder.group({
                 userId: new FormControl(
                     { value: this.loginForm.value.userId, disabled: true },
