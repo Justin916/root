@@ -56,9 +56,15 @@ import { CreatePatientComponent } from "./create-patient/create-patient.componen
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ManageImageComponent } from "app/manage-image/manage-image.component";
 import { ImageCropperModule } from "ngx-image-cropper";
+import { ChartsModule } from "ng2-charts";
+import { BarChartComponent } from "app/bar-chart/bar-chart.component";
 
 @NgModule({
-    declarations: [CreatePatientComponent, ManageImageComponent],
+    declarations: [
+        CreatePatientComponent,
+        ManageImageComponent,
+        BarChartComponent,
+    ],
     imports: [
         CommonModule,
         CreateRoutingModule,
@@ -69,6 +75,7 @@ import { ImageCropperModule } from "ngx-image-cropper";
         FormsModule,
         ReactiveFormsModule,
         ImageCropperModule,
+        ChartsModule,
     ],
     providers: [
         {

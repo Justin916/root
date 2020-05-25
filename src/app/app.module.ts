@@ -20,7 +20,6 @@ import {
 import { fuseConfig } from "app/fuse-config";
 
 import { AppComponent } from "app/app.component";
-import { ManageImageComponent } from "./manage-image/manage-image.component";
 import { LayoutModule } from "app/layout/layout.module";
 import { SampleModule } from "app/main/sample/sample.module";
 import { EditorModule } from "./editor/editor.module";
