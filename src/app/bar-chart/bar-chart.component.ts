@@ -32,8 +32,8 @@ export class BarChartComponent implements OnInit {
             ],
             colors: [
                 {
-                    borderColor: "#42a5f5",
-                    backgroundColor: "#42a5f5",
+                    borderColor: "#43869e",
+                    backgroundColor: "#43869e",
                 },
             ],
             options: {
