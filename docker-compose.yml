@@ -1,0 +1,10 @@
+version: "3" # specify docker-compose version
+services:
+    angular-ui:
+        build:
+            context: .
+        ports:
+            - "8000:4017"
+        volumes:
+            - "/app/node_modules"
+            - .:/app
